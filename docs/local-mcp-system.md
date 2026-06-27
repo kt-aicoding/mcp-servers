@@ -13,6 +13,18 @@ This document captures the MCP operating model for Kevin's AI coding environment
 
 The default MCP surface is intentionally small. Most cloud, source-control, and database workflows are handled by local CLIs.
 
+## MCP Decision Framework
+
+Use this framework before adding a server or enabling a provider MCP by default.
+
+| Question | If yes | If no |
+| --- | --- | --- |
+| Does the agent need this tool during reasoning, not just before/after work? | MCP may be appropriate | Prefer CLI or docs |
+| Is the capability already well covered by a mature CLI? | Use the CLI unless MCP adds unique value | MCP may be useful |
+| Can the tool surface be small and explicit? | Continue design | Do not expose broad APIs |
+| Can auth be scoped and explained safely? | Continue design | Do not default-enable |
+| Can outputs be deterministic enough for agent use? | Continue design | Keep it manual or CLI-based |
+
 ## MCP Versus CLI Boundary
 
 | Workflow | Default tool | Reason |
@@ -44,6 +56,27 @@ The default MCP surface is intentionally small. Most cloud, source-control, and 
 - Do not store secrets or private machine state in MCP docs.
 - Test MCP servers per project before making them global defaults.
 - Promote mature MCP servers into standalone repositories only after their API surface stabilizes.
+
+## Tool Surface Scorecard
+
+| Criterion | Good | Risky |
+| --- | --- | --- |
+| Tool name | Verb-object and domain-specific | Generic names like `run` or `execute` without context |
+| Inputs | Small schema, typed, documented | Free-form blobs unless unavoidable |
+| Outputs | Structured result with actionable fields | Long logs or unbounded raw output |
+| Permissions | Narrow, scoped, revocable | Broad account access by default |
+| Failure mode | Clear error category and retry guidance | Silent failures or ambiguous text |
+| State | Explicit and inspectable | Hidden session assumptions |
+
+## Anti-Patterns
+
+| Anti-pattern | Why it is risky | Preferred approach |
+| --- | --- | --- |
+| Turning every API into an MCP server | Large surface area increases auth and safety risk | Start with one narrow workflow |
+| Duplicating mature provider CLIs | Adds maintenance without clear value | Use provider CLI and document commands |
+| Long-lived global MCPs for rare tasks | Slower sessions and more auth complexity | Enable task-specific tools only when needed |
+| Returning unbounded raw logs | Burns context and hides signal | Return structured summaries and links to logs |
+| Storing secrets in MCP examples | Leaks credentials and encourages bad patterns | Use placeholders and explicit secret setup instructions |
 
 ## Maintenance Commands
 
