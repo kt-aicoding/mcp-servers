@@ -17,6 +17,8 @@ The default MCP surface is intentionally small. Most cloud, source-control, and 
 
 Use this framework before adding a server or enabling a provider MCP by default.
 
+Canonical skill: [`mcp-surface-governance`](https://github.com/kt-aicoding/skills/blob/main/skills/codex/mcp-surface-governance/SKILL.md).
+
 | Question | If yes | If no |
 | --- | --- | --- |
 | Does the agent need this tool during reasoning, not just before/after work? | MCP may be appropriate | Prefer CLI or docs |
