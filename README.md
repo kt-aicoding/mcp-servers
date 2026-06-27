@@ -27,6 +27,7 @@ servers/
 
 | Document | Notes |
 | --- | --- |
+| [Documentation Index](docs/README.md) | Entry point for MCP operating documents. |
 | [Local MCP System](docs/local-mcp-system.md) | Default MCP surface, CLI/MCP boundary, disabled MCP categories, and maintenance commands. |
 
 ## Guidelines

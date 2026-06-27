@@ -42,6 +42,7 @@ servers/
 
 | 文档 | 说明 |
 | --- | --- |
+| [文档索引](docs/README.zh-CN.md) | MCP 体系和操作资料入口。 |
 | [本地 MCP 体系](docs/local-mcp-system.md) | 默认 MCP 面、CLI/MCP 边界、非默认 MCP 类型和维护命令。 |
 
 ## 规范
