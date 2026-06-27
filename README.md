@@ -17,13 +17,20 @@ Mature servers can graduate into standalone repositories under `kt-aicoding`.
 ## Layout
 
 ```text
+docs/
+  local-mcp-system.md
 servers/
   <server-name>/
 ```
+
+## Operating References
+
+| Document | Notes |
+| --- | --- |
+| [Local MCP System](docs/local-mcp-system.md) | Default MCP surface, CLI/MCP boundary, disabled MCP categories, and maintenance commands. |
 
 ## Guidelines
 
 - Keep each server installable and documented independently.
 - Include client configuration examples for Codex and Claude Code when applicable.
 - Prefer explicit tool names and small, composable MCP surfaces.
-

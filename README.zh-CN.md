@@ -15,13 +15,20 @@
 ## 目录规划
 
 ```text
+docs/
+  local-mcp-system.md
 servers/
   <server-name>/
 ```
+
+## 操作资料
+
+| 文档 | 说明 |
+| --- | --- |
+| [本地 MCP 体系](docs/local-mcp-system.md) | 默认 MCP 面、CLI/MCP 边界、非默认 MCP 类型和维护命令。 |
 
 ## 规范
 
 - 每个 server 应该能独立安装、运行和阅读文档。
 - 适用时提供 Codex 和 Claude Code 的客户端配置示例。
 - MCP tool 命名要清晰，接口保持小而可组合。
-
