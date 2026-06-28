@@ -1,6 +1,6 @@
 # Local MCP System
 
-Last refreshed: 2026-06-27.
+Last refreshed: 2026-06-28.
 
 This document captures the MCP operating model for Kevin's AI coding environment. It is a public, sanitized snapshot and must not contain tokens, API keys, OAuth secrets, browser cookies, machine-local private paths, or private project context.
 
