@@ -73,6 +73,17 @@ servers/
 - Provider MCP 不应默认替代成熟 CLI，除非 MCP 能提供明确的 agent-native 价值。
 - 对外暴露的 tool 输入输出要稳定，避免把本地机器细节和私密上下文编码进接口。
 
+## 本地验证
+
+这个仓库当前以文档和治理资料为主。提交前至少运行：
+
+```bash
+git diff --check
+rg -n "gho_|Bearer|SERVICE_ROLE|password|cookie|secret|token|API_KEY|/Users/" README.md README.zh-CN.md docs || true
+```
+
+敏感扫描只允许命中安全说明或 placeholder，不允许真实凭据、私有路径或账号细节。
+
 ## 成熟度模型
 
 | 阶段 | 形态 | 进入下一阶段的条件 |

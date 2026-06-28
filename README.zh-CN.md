@@ -45,6 +45,13 @@ servers/
 | [文档索引](docs/README.zh-CN.md) | MCP 体系和操作资料入口。 |
 | [本地 MCP 体系](docs/local-mcp-system.md) | 默认 MCP 面、CLI/MCP 边界、非默认 MCP 类型和维护命令。 |
 
+## 相关 Skill
+
+| Skill | 用途 |
+| --- | --- |
+| [`mcp-surface-governance`](https://github.com/kt-aicoding/skills/blob/main/skills/codex/mcp-surface-governance/SKILL.md) | 判断能力是否适合暴露为 MCP server，并设计小而安全的 tool surface。 |
+| [`kt-aicoding-registry`](https://github.com/kt-aicoding/skills/blob/main/skills/codex/kt-aicoding-registry/SKILL.md) | 判断 MCP 能力是否仍属于 `mcp-servers`，还是应迁入其他 kt-aicoding 仓库或独立成仓。 |
+
 ## 如何把这个仓库当参考
 
 这个仓库的重点不是“能接多少 MCP”，而是判断哪些能力值得暴露给 Agent。
@@ -65,6 +72,17 @@ servers/
 - 默认 MCP 面保持克制；当前优先保留文档检索和浏览器自动化类能力。
 - Provider MCP 不应默认替代成熟 CLI，除非 MCP 能提供明确的 agent-native 价值。
 - 对外暴露的 tool 输入输出要稳定，避免把本地机器细节和私密上下文编码进接口。
+
+## 本地验证
+
+这个仓库当前以文档和治理资料为主。提交前至少运行：
+
+```bash
+git diff --check
+rg -n "gho_|Bearer|SERVICE_ROLE|password|cookie|secret|token|API_KEY|/Users/" README.md README.zh-CN.md docs || true
+```
+
+敏感扫描只允许命中安全说明或 placeholder，不允许真实凭据、私有路径或账号细节。
 
 ## 成熟度模型
 
